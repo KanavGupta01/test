@@ -141,9 +141,7 @@ wss.on('connection', function(connection) {
             }  
          } 
       } 
-   });  
-	
-   connection.send("Hello world"); 
+   });   
 }); 
  
 function sendTo(connection, message) { 
