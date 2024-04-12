@@ -58,8 +58,8 @@ wss.on('connection', function(connection) {
             var conn = users[data.name]; 
 				
             if(conn != null) { 
-               //setting that UserA connected with UserB 
-               connection.otherName = data.name; 
+               // //setting that UserA connected with UserB 
+               // connection.otherName = data.name; 
 					
                sendTo(conn, { 
                   type: "offer", 
@@ -76,7 +76,7 @@ wss.on('connection', function(connection) {
             var conn = users[data.name]; 
 				
             if(conn != null) { 
-               connection.otherName = data.name; 
+               // connection.otherName = data.name; 
                sendTo(conn, { 
                   type: "answer", 
                   answer: data.answer 
@@ -105,7 +105,7 @@ wss.on('connection', function(connection) {
 				
             //notify the other user so he can disconnect his peer connection 
             if(conn != null) { 
-		    conn.otherName = null; 
+		    // conn.otherName = null; 
                sendTo(conn, { 
                   type: "leave" 
                }); 
@@ -130,17 +130,17 @@ wss.on('connection', function(connection) {
       if(connection.name) { 
          delete users[connection.name]; 
 			
-         if(connection.otherName) { 
-            console.log("Disconnecting from ", connection.otherName); 
-            var conn = users[connection.otherName]; 
-            conn.otherName = null;  
+         // if(connection.otherName) { 
+         //    console.log("Disconnecting from ", connection.otherName); 
+         //    var conn = users[connection.otherName]; 
+         //    conn.otherName = null;  
 				
-            if(conn != null) { 
-               sendTo(conn, { 
-                  type: "leave" 
-              }); 
-            }  
-         } 
+         //    if(conn != null) { 
+         //       sendTo(conn, { 
+         //          type: "leave" 
+         //      }); 
+         //    }  
+         // } 
       } 
    });   
 }); 
